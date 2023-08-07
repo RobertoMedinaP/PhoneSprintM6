@@ -17,8 +17,6 @@ class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     private val viewModel: PhoneViewModel by activityViewModels()
@@ -72,9 +70,8 @@ class SecondFragment : Fragment() {
             }
 
             //falta boton correo,
+            // comentario para probar commits
         })
-
-
 
     }
 
