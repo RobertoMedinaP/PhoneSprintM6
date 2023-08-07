@@ -17,8 +17,6 @@ class PhoneViewModel(application: Application): AndroidViewModel(application) {
 
     private val phoneDetailLiveData= MutableLiveData<PhoneDetailEntity>()
 
-    //duda, el id en la entidad es int pero desde el repo lo llamamos por string por el llamado a la web
-
     private var idSelected: String="-1"
 
     init {

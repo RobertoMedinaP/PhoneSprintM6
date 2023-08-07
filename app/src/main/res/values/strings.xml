@@ -8,4 +8,5 @@
     <string name="previous">Previous</string>
 
     <string name="lorem_ipsum">Lorem ipsum</string>
+    <string name="mail">Enviar correo electrónico</string>
 </resources>

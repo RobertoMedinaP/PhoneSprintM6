@@ -43,7 +43,6 @@
                     android:id="@+id/id"
                     android:layout_width="352dp"
                     android:layout_height="wrap_content"
-                    android:text="Nombre"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -118,13 +117,13 @@
                 android:padding="16dp">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonSecond"
+                    android:id="@+id/btMail"
                     style="?attr/borderlessButtonStyle"
                     android:layout_width="376dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:background="@color/accentcolor"
-                    android:text="Enviar correo electrónico"
+                    android:text="@string/mail"
                     android:textColor="@color/design_default_color_background"
                     android:textStyle="bold"
                     app:backgroundTint="@color/primarytext" />

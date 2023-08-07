@@ -59,7 +59,7 @@ class FirstFragment : Fragment() {
             }
         })
 
-        //me falta funcion para seleccionar
+
 
         adapter.elementoSeleccionado().observe(viewLifecycleOwner, Observer {
 
