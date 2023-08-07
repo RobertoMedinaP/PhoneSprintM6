@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondFragment">
+    tools:context=".View.SecondFragment">
 
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="379dp"
+        android:layout_height="522dp"
         android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,19 +18,25 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.120000005">
 
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="118dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textview_second"
                 tools:src="@tools:sample/avatars" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"></LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,7 +49,8 @@
                     android:id="@+id/id"
                     android:layout_width="352dp"
                     android:layout_height="wrap_content"
-                    android:text="Nombre"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/id"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -52,7 +59,8 @@
                     android:id="@+id/name"
                     android:layout_width="352dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/lorem_ipsum"
+                    android:text="@string/Name"
+                    android:fontFamily="sans-serif"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +70,8 @@
                     android:id="@+id/price"
                     android:layout_width="352dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/lorem_ipsum"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/Price"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -77,10 +86,12 @@
                     android:id="@+id/description"
                     android:layout_width="352dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/lorem_ipsum"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/Description"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -93,7 +104,8 @@
                     android:id="@+id/lastprice"
                     android:layout_width="352dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/lorem_ipsum" />
+                    android:fontFamily="sans-serif"
+                    android:text="@string/Lastprice" />
             </LinearLayout>
 
             <LinearLayout
@@ -105,7 +117,8 @@
                     android:id="@+id/credit"
                     android:layout_width="352dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/lorem_ipsum"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/credit"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -113,27 +126,54 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:background="#BDBDBD"
                 android:padding="16dp">
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonSecond"
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/btfab"
                     style="?attr/borderlessButtonStyle"
-                    android:layout_width="376dp"
+                    android:layout_width="336dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:background="@color/accentcolor"
-                    android:text="Enviar correo electrónico"
-                    android:textColor="@color/design_default_color_background"
-                    android:textStyle="bold"
-                    app:backgroundTint="@color/primarytext" />
+                    android:contentDescription="nada"
+                    android:fontFamily="monospace"
+                    android:text="@string/enviarcorreo"
+                    android:textColor="@color/texticons"
+                    android:textColorHighlight="@color/texticons"
+                    android:textColorLink="@color/texticons"
+                    android:textSize="16sp"
+                    app:backgroundTint="@color/primarytext"
+                    app:icon="@drawable/baseline_mail_outline_24"
+                    app:iconTint="@color/texticons" />
+
 
             </LinearLayout>
 
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
+
+   <!-- <com.google.android.material.button.MaterialButton
+        android:id="@+id/btVolver"
+        style="?attr/borderlessButtonStyle"
+        android:layout_width="198dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="96dp"
+        android:background="@color/accentcolor"
+        android:text="@string/volver"
+        android:textColor="@color/design_default_color_background"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/material_dynamic_primary20"
+        app:icon="@drawable/baseline_arrow_back_24"
+        app:iconPadding="0dp"
+        app:iconSize="25dp"
+        app:iconTint="@color/texticons"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="parent" />  -->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

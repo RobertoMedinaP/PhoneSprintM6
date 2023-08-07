@@ -1,4 +1,4 @@
-package com.example.phonesprintm6
+package com.example.phonesprintm6.View
 
 import android.view.LayoutInflater
 import android.view.View
@@ -22,11 +22,10 @@ class PhoneAdapter: RecyclerView.Adapter<PhoneAdapter.PhoneViewHolder>(){
             View.OnClickListener{
                 fun bind(phone: PhoneEntity){
                     Glide.with(binding.imageView).load(phone.image).into(binding.imageView)
-                    binding.tv1.text=phone.id.toString()
+                    binding.tv1.text="ID Producto "+ phone.id.toString()
                     binding.tv2.text=phone.name
-                    binding.tv3.text=phone.price.toString()
+                    binding.tv3.text="$"+ phone.price.toString()+"  CLP"
                     itemView.setOnClickListener(this)
-
                 }
 
         override fun onClick(v: View?) {
@@ -35,7 +34,8 @@ class PhoneAdapter: RecyclerView.Adapter<PhoneAdapter.PhoneViewHolder>(){
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhoneViewHolder {
-        val binding= ItemListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        //val binding= ItemListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding= ItemListBinding.inflate(LayoutInflater.from(parent.context), parent,false)
         return PhoneViewHolder(binding)
     }
 
@@ -57,5 +57,6 @@ class PhoneAdapter: RecyclerView.Adapter<PhoneAdapter.PhoneViewHolder>(){
         notifyDataSetChanged()
     }
 
+    // NO QUIERE INFLAR VISTA ITEM LIST, FILAS 38 Y 13
 
 }
