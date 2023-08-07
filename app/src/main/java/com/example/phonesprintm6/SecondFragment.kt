@@ -13,9 +13,6 @@ import com.bumptech.glide.Glide
 import com.example.phonesprintm6.ViewModel.PhoneViewModel
 import com.example.phonesprintm6.databinding.FragmentSecondBinding
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
@@ -56,16 +53,26 @@ class SecondFragment : Fragment() {
 
         viewModel.getPhoneDetail().observe(viewLifecycleOwner, Observer {
 
-            binding.textviewSecond.text=it.lastPrice.toString()
+
             Glide.with(binding.imageView2).load(it.image).into(binding.imageView2)
-            //FALTA: mejorar diseño de fragmento 2, poner el resto de datos que se reciben
-            //asignar it.credit
-            //boton correo, poner colores
+            binding.id.text="Id Producto:    "+ it.id
+            binding.name.text="Nombre de Celular:  "+ it.name
+            binding.price.text="Precio:  "+ it.price.toString()
+            binding.description.text="Descripción Producto:  "+ it.description
+            binding.lastprice.text="Precio Final:  "+ it.lastPrice.toString()
+
+            /** Esta funcionalidad fue requerida en la evaluación. Sin embargo, en la Api no
+            existen credit = false, por tanto, son todos pago crédito**/
+
+            if(it.credit==true){
+                binding.credit.text="Pago Crédito"
+            }
+            else{
+                binding.credit.text="Pago Efectivo"
+            }
+
+            //falta boton correo,
         })
-
-
-
-
 
 
 
