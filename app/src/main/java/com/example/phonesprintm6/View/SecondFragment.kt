@@ -10,17 +10,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.phonesprintm6.R
 import com.example.phonesprintm6.ViewModel.PhoneViewModel
 import com.example.phonesprintm6.databinding.FragmentSecondBinding
 
 class SecondFragment : Fragment() {
 
+    // Declaracion de variables
     private var _binding: FragmentSecondBinding? = null
     private val binding get() = _binding!!
     private val viewModel: PhoneViewModel by activityViewModels()
     private var phoneId: String? = null
 
+    // Implementacion de funciones
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,20 +37,19 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //binding.buttonSecond.setOnClickListener {
-        //  findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-        //  }
-
+        // Recibiendo del primer fragmento
         arguments?.let { bundle ->
             phoneId = bundle.getString("phoneid")
             Log.d("***LO RECIBO??***", phoneId.toString())
             //recibo bien
         }
 
+        // Se recibe ID de un phone para pasarselo a la funcion obtener detalle de internet
         phoneId?.let { id ->
             viewModel.getPhoneDetailByIdFromInternet(id)
         }
 
+        // Llama la funcion PhoneDetail, la observa y se pasan los datos
         viewModel.getPhoneDetail().observe(viewLifecycleOwner, Observer {
 
             Glide.with(binding.imageView2).load(it.image).into(binding.imageView2)
@@ -65,12 +68,11 @@ class SecondFragment : Fragment() {
                 binding.credit.text = "Tipo de Pago        : Sólo Efectivo"
             }
 
+            // Declaracion de variables para enviar correo
             var name = it.name
             var code = it.id.toString()
 
-            //boton correo funcionando, podriamos hacerlo extended fab
-            // y esta vista scrollable
-
+            // Boton para enviar correo utilizando intent.
             binding.btfab.setOnClickListener {
 
                 val intent = Intent(Intent.ACTION_SEND)
@@ -91,9 +93,16 @@ class SecondFragment : Fragment() {
                 startActivity(intent)
             }
         })
-    }
-                override fun onDestroyView() {
-            super.onDestroyView()
-            _binding = null
+
+        // Implementacion volver al primer fragmento
+        binding.btvolver.setOnClickListener {
+            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
     }
+
+    // funcion para destruir la vista
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}

@@ -22,8 +22,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_first"
+   <Button
+        android:id="@+id/btcerrar"
         android:layout_width="243dp"
         android:layout_height="51dp"
         android:layout_marginBottom="64dp"
@@ -39,7 +39,7 @@
         android:layout_width="393dp"
         android:layout_height="560dp"
         android:layout_marginEnd="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_first"
+        app:layout_constraintBottom_toTopOf="@+id/btcerrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

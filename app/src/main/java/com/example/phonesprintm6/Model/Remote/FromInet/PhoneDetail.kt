@@ -1,6 +1,10 @@
 package com.example.phonesprintm6.Model.Remote.FromInet
 
-data class PhoneDetail (
+
+// Definicion de Data class
+data class PhoneDetail(
+
+    // Declaración de variables
 
     val id: Int,
     val name: String,

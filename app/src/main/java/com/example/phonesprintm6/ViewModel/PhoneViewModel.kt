@@ -11,37 +11,34 @@ import com.example.phonesprintm6.Model.Local.Entitties.PhoneEntity
 import com.example.phonesprintm6.Model.PhoneRepository
 import kotlinx.coroutines.launch
 
-class PhoneViewModel(application: Application): AndroidViewModel(application) {
+class PhoneViewModel(application: Application) : AndroidViewModel(application) {
 
+    // Instancias
     private val repository: PhoneRepository
+    private val phoneDetailLiveData = MutableLiveData<PhoneDetailEntity>()
 
-    private val phoneDetailLiveData= MutableLiveData<PhoneDetailEntity>()
+    // Variable para guardar el ID seleccionado
+    private var idSelected: String = "-1"
 
-    //duda, el id en la entidad es int pero desde el repo lo llamamos por string por el llamado a la web
-
-    private var idSelected: String="-1"
-
+    // Inicializacion de variables
     init {
-
-        val PhoneDao=PhoneDataBase.getDataBase(application).getPhoneDao()
-        repository= PhoneRepository(PhoneDao)
-
+        val PhoneDao = PhoneDataBase.getDataBase(application).getPhoneDao()
+        repository = PhoneRepository(PhoneDao)
         viewModelScope.launch {
             repository.fetchPhone()
         }
     }
 
+    // Llamado a las funciones del Repositorio y despertar las funciones suspendidas
     fun getPhoneList(): LiveData<List<PhoneEntity>> = repository.phoneListLiveData
 
     fun getPhoneDetail(): LiveData<PhoneDetailEntity> = phoneDetailLiveData
 
-    fun getPhoneDetailByIdFromInternet(id: String)=viewModelScope.launch {
+    fun getPhoneDetailByIdFromInternet(id: String) = viewModelScope.launch {
 
-        val phoneDetail=repository.fetchPhoneDetail(id)
+        val phoneDetail = repository.fetchPhoneDetail(id)
         phoneDetail?.let {
             phoneDetailLiveData.postValue(it)
         }
     }
-
-
 }

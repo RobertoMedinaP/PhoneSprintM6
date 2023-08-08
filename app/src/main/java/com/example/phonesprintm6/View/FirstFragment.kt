@@ -18,10 +18,14 @@ import com.example.phonesprintm6.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {
 
+    // Declaracion de variables
     private var _binding: FragmentFirstBinding? = null
     private val binding get() = _binding!!
+
+    // Instancia de viewModel
     private val viewModel: PhoneViewModel by activityViewModels()
 
+    // Implementacion de metodos
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,19 +35,25 @@ class FirstFragment : Fragment() {
         return binding.root
     }
 
+    //
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }*/
+        // Implementacion de boton para salir de aplicacion
+        binding.btcerrar.setOnClickListener {
+            requireActivity().finishAffinity()
+        }
 
-        val adapter= PhoneAdapter()
-        binding.rv1.adapter=adapter
-        binding.rv1.layoutManager=LinearLayoutManager(context)
+        // Le pasamos el adapter al RecyclerView
+        val adapter = PhoneAdapter()
+        binding.rv1.adapter = adapter
+        binding.rv1.layoutManager = LinearLayoutManager(context)
         binding.rv1.addItemDecoration(
-            DividerItemDecoration(context,
-            DividerItemDecoration.VERTICAL))
+            DividerItemDecoration(
+                context,
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
         viewModel.getPhoneList().observe(viewLifecycleOwner, Observer {
             it?.let {
@@ -55,13 +65,14 @@ class FirstFragment : Fragment() {
             it?.let {
                 Log.d("******ELEGIR ID******", it.id.toString())
             }
-            val bundle= Bundle().apply {
+            val bundle = Bundle().apply {
                 putString("phoneid", it.id.toString())
             }
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment,bundle)
+            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment, bundle)
         })
     }
 
+    // Funcion para destruir la vista
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

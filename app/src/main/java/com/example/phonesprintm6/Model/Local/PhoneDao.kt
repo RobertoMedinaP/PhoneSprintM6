@@ -12,6 +12,9 @@ import com.example.phonesprintm6.Model.Local.Entitties.PhoneDetailEntity
 @Dao
 interface PhoneDao {
 
+
+    // Declaración de funciones a utilizar en la BD
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllPhones(phoneList: List<PhoneEntity>)
 
@@ -23,10 +26,5 @@ interface PhoneDao {
 
     @Query("SELECT * FROM PHONE_DETAIL_TABLE WHERE id=:id")
     fun getPhoneDetailById(id: String): LiveData<PhoneDetailEntity>
-
-    //puedo hacer funciones para borrar mas adelante
-
-
-
 
 }

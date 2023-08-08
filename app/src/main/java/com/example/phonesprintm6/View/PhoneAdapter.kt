@@ -10,32 +10,32 @@ import com.bumptech.glide.Glide
 import com.example.phonesprintm6.Model.Local.Entitties.PhoneEntity
 import com.example.phonesprintm6.databinding.ItemListBinding
 
-class PhoneAdapter: RecyclerView.Adapter<PhoneAdapter.PhoneViewHolder>(){
+// Implementacion clase
+class PhoneAdapter : RecyclerView.Adapter<PhoneAdapter.PhoneViewHolder>() {
 
-    private var phoneList= listOf<PhoneEntity>()
-    private val selectedPhone= MutableLiveData<PhoneEntity>()
+    private var phoneList = listOf<PhoneEntity>()
+    private val selectedPhone = MutableLiveData<PhoneEntity>()
 
-
-    inner class PhoneViewHolder(private val binding: ItemListBinding):
+    // Declaracion de Clase interna ViewHolder y funciones
+    inner class PhoneViewHolder(private val binding: ItemListBinding) :
         RecyclerView.ViewHolder(binding.root),
 
-            View.OnClickListener{
-                fun bind(phone: PhoneEntity){
-                    Glide.with(binding.imageView).load(phone.image).into(binding.imageView)
-                    binding.tv1.text="ID Producto "+ phone.id.toString()
-                    binding.tv2.text=phone.name
-                    binding.tv3.text="$"+ phone.price.toString()+"  CLP"
-                    itemView.setOnClickListener(this)
-                }
+        View.OnClickListener {
+        fun bind(phone: PhoneEntity) {
+            Glide.with(binding.imageView).load(phone.image).into(binding.imageView)
+            binding.tv1.text = "ID Producto " + phone.id.toString()
+            binding.tv2.text = phone.name
+            binding.tv3.text = "$" + phone.price.toString() + "  CLP"
+            itemView.setOnClickListener(this)
+        }
 
         override fun onClick(v: View?) {
-            selectedPhone.value=phoneList[adapterPosition]
+            selectedPhone.value = phoneList[adapterPosition]
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhoneViewHolder {
-        //val binding= ItemListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        val binding= ItemListBinding.inflate(LayoutInflater.from(parent.context), parent,false)
+        val binding = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PhoneViewHolder(binding)
     }
 
@@ -44,7 +44,7 @@ class PhoneAdapter: RecyclerView.Adapter<PhoneAdapter.PhoneViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: PhoneViewHolder, position: Int) {
-        val selectedPhone=phoneList[position]
+        val selectedPhone = phoneList[position]
         holder.bind(selectedPhone)
     }
 
@@ -52,11 +52,8 @@ class PhoneAdapter: RecyclerView.Adapter<PhoneAdapter.PhoneViewHolder>(){
     fun elementoSeleccionado(): LiveData<PhoneEntity> = selectedPhone
 
     //funcion para actualizar
-    fun updateData(list: List<PhoneEntity>){
-        phoneList=list
+    fun updateData(list: List<PhoneEntity>) {
+        phoneList = list
         notifyDataSetChanged()
     }
-
-    // NO QUIERE INFLAR VISTA ITEM LIST, FILAS 38 Y 13
-
 }

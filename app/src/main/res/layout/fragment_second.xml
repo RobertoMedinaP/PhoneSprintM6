@@ -36,7 +36,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"></LinearLayout>
+                android:padding="16dp">
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -136,7 +138,7 @@
                     android:layout_width="336dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:contentDescription="nada"
+                    android:contentDescription="@string/nada"
                     android:fontFamily="monospace"
                     android:text="@string/enviarcorreo"
                     android:textColor="@color/texticons"
@@ -147,6 +149,13 @@
                     app:icon="@drawable/baseline_mail_outline_24"
                     app:iconTint="@color/texticons" />
 
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Button" />
+
 
             </LinearLayout>
 
@@ -154,26 +163,21 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-   <!-- <com.google.android.material.button.MaterialButton
-        android:id="@+id/btVolver"
-        style="?attr/borderlessButtonStyle"
-        android:layout_width="198dp"
-        android:layout_height="51dp"
-        android:layout_marginBottom="96dp"
-        android:background="@color/accentcolor"
+    <Button
+        android:id="@+id/btvolver"
+        android:layout_width="213dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="92dp"
+        android:backgroundTint="@color/primarytext"
+        android:fontFamily="sans-serif"
         android:text="@string/volver"
-        android:textColor="@color/design_default_color_background"
         android:textSize="16sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/material_dynamic_primary20"
         app:icon="@drawable/baseline_arrow_back_24"
-        app:iconPadding="0dp"
-        app:iconSize="25dp"
-        app:iconTint="@color/texticons"
+        app:iconSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.094"
-        app:layout_constraintStart_toStartOf="parent" />  -->
+        app:layout_constraintHorizontal_bias="0.074"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,9 @@ package com.example.phonesprintm6.Model.Remote
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
+// Declaracion de clase RetrofitClient
+
 class RetrofitClient {
 
     companion object {
@@ -19,7 +22,5 @@ class RetrofitClient {
                 .build()
             return retrofit.create(PhoneApi::class.java)
         }
-
-
     }
 }

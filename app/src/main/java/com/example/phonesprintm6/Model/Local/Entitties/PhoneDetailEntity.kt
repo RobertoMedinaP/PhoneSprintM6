@@ -4,9 +4,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
+// Declaración de Entidad
 @Entity(tableName = "phone_detail_table")
-data class PhoneDetailEntity (
+data class PhoneDetailEntity(
 
+    // Declaración de variables
     @PrimaryKey
     val id: Int,
     val name: String,
@@ -15,4 +17,4 @@ data class PhoneDetailEntity (
     val description: String,
     val lastPrice: Int,
     val credit: Boolean
-        )
+)
