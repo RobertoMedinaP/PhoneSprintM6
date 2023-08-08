@@ -1,4 +1,4 @@
-package com.example.phonesprintm6
+package com.example.phonesprintm6.View
 
 import android.view.LayoutInflater
 import android.view.View
