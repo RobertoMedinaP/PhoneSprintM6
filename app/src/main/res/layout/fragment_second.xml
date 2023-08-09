@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
         tools:context=".View.SecondFragment">
 
 
@@ -137,49 +136,48 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:background="#BDBDBD"
-                    android:padding="16dp" />
+                    android:padding="16dp">
+
+                    <Button
+                        android:id="@+id/btvolver"
+                        android:layout_width="254dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/primarytext"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/volver"
+                        android:textSize="16sp"
+                        app:icon="@drawable/baseline_arrow_back_24"
+                        app:iconSize="20dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/btfab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/nada"
+                        android:fontFamily="monospace"
+                        android:text="@string/enviarcorreo"
+                        android:textColor="@color/texticons"
+                        android:textColorHighlight="@color/texticons"
+                        android:textColorLink="@color/texticons"
+                        android:textSize="16sp"
+                        app:backgroundTint="@color/primarytext"
+                        app:icon="@drawable/baseline_mail_outline_24"
+                        app:iconTint="@color/texticons" />
+                </LinearLayout>
 
             </LinearLayout>
 
+
         </com.google.android.material.card.MaterialCardView>
-
-        <Button
-            android:id="@+id/btvolver"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:backgroundTint="@color/primarytext"
-            android:fontFamily="sans-serif"
-            android:text="@string/volver"
-            android:textSize="16sp"
-            app:icon="@drawable/baseline_arrow_back_24"
-            app:iconSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/btfab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/nada"
-            android:fontFamily="monospace"
-            android:text="@string/enviarcorreo"
-            android:textColor="@color/texticons"
-            android:textColorHighlight="@color/texticons"
-            android:textColorLink="@color/texticons"
-            android:textSize="16sp"
-            app:backgroundTint="@color/primarytext"
-            app:icon="@drawable/baseline_mail_outline_24"
-            app:iconTint="@color/texticons"
-            android:layout_gravity="bottom|end"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
-
