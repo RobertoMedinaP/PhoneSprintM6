@@ -26,7 +26,7 @@
         android:id="@+id/btcerrar"
         android:layout_width="243dp"
         android:layout_height="51dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="@color/primarytext"
         android:text="@string/cerrar"
         android:textSize="20sp"
@@ -36,8 +36,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv1"
-        android:layout_width="393dp"
-        android:layout_height="560dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="1dp"
         app:layout_constraintBottom_toTopOf="@+id/btcerrar"
         app:layout_constraintEnd_toEndOf="parent"
