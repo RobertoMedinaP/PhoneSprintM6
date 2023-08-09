@@ -30,7 +30,7 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentSecondBinding.inflate(inflater, container, false)
+        _binding = FragmentSecondBinding.inflate(inflater,container, false)
         return binding.root
     }
 
@@ -57,7 +57,7 @@ class SecondFragment : Fragment() {
             binding.name.text = "Nombre Celular   : " + it.name
             binding.price.text = "Precio                    : $" + it.price.toString()
             binding.description.text = "Descripción          : " + it.description
-            binding.lastprice.text = "Precio Final           : " + it.lastPrice.toString()
+            binding.lastprice.text = "Precio Final           : $" + it.lastPrice.toString()
 
             /** Esta funcionalidad fue requerida en la evaluación. Sin embargo, en la Api no
             existen credit = false, por tanto, son todos pago crédito**/
@@ -95,8 +95,8 @@ class SecondFragment : Fragment() {
         })
 
         // Implementacion volver al primer fragmento
-        binding.btvolver.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+       binding.btvolver.setOnClickListener {
+          findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
     }
 

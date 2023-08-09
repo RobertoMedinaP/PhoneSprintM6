@@ -12,8 +12,8 @@
     <string name="Description">Description</string>
     <string name="Lastprice">Last price</string>
     <string name="credit">Credit</string>
-    <string name="volver">Volver al Listado</string>
-    <string name="enviarcorreo">Enviar Correo Electrónico</string>
+    <string name="volver">Volver</string>
+    <string name="enviarcorreo">Contáctanos</string>
     <string name="nada">nada</string>
-
+    <string name="caracteristica">Características del Producto</string>
 </resources>

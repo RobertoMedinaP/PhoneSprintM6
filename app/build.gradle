@@ -40,7 +40,7 @@ dependencies {
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
@@ -56,7 +56,7 @@ dependencies {
 
     // Glide
 
-    implementation "com.github.bumptech.glide:glide:4.13.0"
+    implementation "com.github.bumptech.glide:glide:4.15.1"
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
     // ROOM
@@ -70,9 +70,33 @@ dependencies {
     // To use Kotlin annotation processing tool (kapt)
     kapt "androidx.room:room-compiler:$room_version"
 //  se agrega corrije  algunos errores de la app
-    implementation 'androidx.room:room-ktx:2.4.3'
+    implementation 'androidx.room:room-ktx:2.5.2'
+    kapt "androidx.room:room-compiler:2.5.2"
+
+
+    // Optional -- Robolectric environment
+    testImplementation 'androidx.test:core:1.5.0'
+    // Optional -- Mockito framework
+    testImplementation 'org.mockito:mockito-core:2.25.0'
+
+    // dependencias de mockWebserver
+    // Dependencia de OkHttp
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    // Dependencia de OkHttp MockWebServer (para pruebas)
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.9.3'
+    configurations.all {
+        exclude module: 'okhttp-ws'
+    }
 
 
 
-    kapt "androidx.room:room-compiler:2.4.3"
+
+    // Robolectric environment
+    testImplementation 'org.robolectric:robolectric:4.9'
+    testImplementation "androidx.arch.core:core-testing:2.2.0"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.0.0-alpha03@jar"
+    testImplementation 'androidx.test:core-ktx:1.5.0'
+    testImplementation 'androidx.test.ext:junit-ktx:1.1.5'
+
+
 }
