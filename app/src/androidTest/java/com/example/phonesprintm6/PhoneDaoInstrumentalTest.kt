@@ -1,5 +1,7 @@
 package com.example.phonesprintm6
 
+import android.util.Log
+import android.os.Build
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -15,6 +17,7 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.junit.runner.manipulation.Ordering.Context
 
 //Todo Check it out
 @RunWith(AndroidJUnit4::class)
@@ -44,9 +47,13 @@ class PhoneDaoInstrumentalTest {
         )
 
         phoneDao.insertAllPhones(phoneEntity)
+        Log.d("TEST", phoneDao.insertAllPhones(phoneEntity).toString())
 
         val phoneLivedata= phoneDao.getAllPhones()
         val phoneList: List<PhoneEntity> = phoneLivedata.value?: emptyList()
+
+        Log.d("TestLogs", "Tamaño de la lista de teléfonos: ${phoneList.size}")
+        Log.d("TestLogs", "Lista de teléfonos: $phoneList")
 
         //verificar el listado
 
@@ -71,6 +78,7 @@ class PhoneDaoInstrumentalTest {
         phoneDao.insertPhoneDetail(phoneDetail)
         val phoneLiveData= phoneDao.getPhoneDetailById("2")
         val phoneValue= phoneLiveData.value
+
 
         assertThat(phoneValue?.price, equalTo(2))
         assertThat(phoneValue?.image, equalTo("imagen2"))
