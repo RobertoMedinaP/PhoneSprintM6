@@ -43,6 +43,8 @@ class PhoneDaoInstrumentalTest {
             PhoneEntity(2,"prueba 2",2,"prueba imagen 2")
         )
 
+        phoneDao.insertAllPhones(phoneEntity)
+
         val phoneLivedata= phoneDao.getAllPhones()
         val phoneList: List<PhoneEntity> = phoneLivedata.value?: emptyList()
 
@@ -70,7 +72,7 @@ class PhoneDaoInstrumentalTest {
         val phoneLiveData= phoneDao.getPhoneDetailById("2")
         val phoneValue= phoneLiveData.value
 
-        assertThat(phoneValue?.id, equalTo("2"))
+        assertThat(phoneValue?.price, equalTo(2))
         assertThat(phoneValue?.image, equalTo("imagen2"))
 
 
